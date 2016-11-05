@@ -6,28 +6,26 @@ Created on 3 nov. 2016
 
 import numpy as np
 import cv2
-
+from Frame import Frame
 class Video:
-    '''
-    classdocs
-    '''
-
-        
+    frames = []
+    
     def setVideo(self, direccion):
         cap = cv2.VideoCapture(direccion)
-        while(cap.isOpened()):
-            ret, frame = cap.read()
-
-            gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-
-            cv2.imshow('frame',gray)
-            if cv2.waitKey(1) & 0xFF == ord('q'):
-                break
-
+        ret = True
+        while(ret):
+            ret,frame = cap.read()
+            f = Frame(frame)
+            self.frames.append(f)
         cap.release()
-        cv2.destroyAllWindows()
+        
+        
         
 x = Video()
-x.setVideo("/Users/jasonsolano/Documents/Lenguajes/Proyecto4/Videos/Video.mp4")      
-        
+x.setVideo("/Users/jasonsolano/Documents/Lenguajes/Proyecto4/Videos/Video.mp4")
+print len(x.frames)
+x.frames[1].convertToHSV()
+cv2.imshow('frame',x.frames[1].frameHsv)
+cv2.waitKey(0)
+      
         
