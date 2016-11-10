@@ -23,9 +23,7 @@ class Video:
         
 x = Video()
 x.setVideo("/Users/jasonsolano/Documents/Lenguajes/Proyecto4/Videos/Video.mp4")
-print len(x.frames)
 x.frames[1].convertToHSV()
-cv2.imshow('frame',x.frames[1].frameHsv)
-cv2.waitKey(0)
-      
+x.frames[1].splitHSV()
+x.frames[1].prueba()
         
