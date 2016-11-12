@@ -28,6 +28,8 @@ class Frame():
         self.frameH,s,v = cv2.split(self.frameHsv)   
     
     def makeNormHist(self):
+        self.convertToHSV()
+        self.splitHSV()
         size = tf.constant((self.frameHsv.size/3), dtype=tf.float32)
         nbins = tf.constant(255)
         value_range = tf.constant([0.0, 255.0])
@@ -36,7 +38,7 @@ class Frame():
             hist = tf.histogram_fixed_width(value, value_range, nbins)
             normalize = tf.constant( hist.eval(), dtype=tf.float32 )
             self.normHist = tf.div(normalize, size)
-    
+            sess.close()
 
 
         

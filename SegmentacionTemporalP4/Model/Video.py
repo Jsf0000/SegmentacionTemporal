@@ -10,6 +10,7 @@ from Frame import Frame
 class Video:
     frames = []
     
+    
     def setVideo(self, direccion):
         cap = cv2.VideoCapture(direccion)
         ret = True
@@ -21,9 +22,9 @@ class Video:
         
         
         
-x = Video()
-x.setVideo("/Users/jasonsolano/Documents/Lenguajes/Proyecto4/Videos/Video.mp4")
-x.frames[1].convertToHSV()
-x.frames[1].splitHSV()
-x.frames[1].prueba()
+#x = Video()
+#x.setVideo("/Users/jasonsolano/Documents/Lenguajes/Proyecto4/Videos/Video.mp4")
+#x.frames[1].convertToHSV()
+#x.frames[1].splitHSV()
+#x.frames[1].makeNormHist()
         
