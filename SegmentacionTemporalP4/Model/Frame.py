@@ -30,6 +30,13 @@ class Frame():
     def makeNormHist(self):
         self.convertToHSV()
         self.splitHSV()
+        cv2.normalize(self.frameH,self.frameH,0,255,cv2.NORM_MINMAX)
+        hist = cv2.calcHist([self.frameH],[0],None,[255],[0,255])
+        self.normHist = np.divide(hist,hist.sum())
+    
+    def makeNormHistTensorflow(self):
+        self.convertToHSV()
+        self.splitHSV()
         size = tf.constant((self.frameHsv.size/3), dtype=tf.float32)
         nbins = tf.constant(255)
         value_range = tf.constant([0.0, 255.0])
@@ -39,6 +46,7 @@ class Frame():
             normalize = tf.constant( hist.eval(), dtype=tf.float32 )
             self.normHist = tf.div(normalize, size)
             sess.close()
-
+            
+        
 
         
