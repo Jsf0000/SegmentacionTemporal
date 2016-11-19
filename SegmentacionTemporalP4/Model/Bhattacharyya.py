@@ -52,6 +52,7 @@ class Bhattacharyya(object):
         self.makeAlphaTensorFlow(histN1, histN2)
         self.MakeBetaTensorFlow(histN1, histN2)
         result = math.sqrt(1 - (self.alpha*self.beta))
+        print result
         return result
     
     def bhattacharyyaDistance(self,histN1,histN2):

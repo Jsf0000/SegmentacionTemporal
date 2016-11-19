@@ -30,7 +30,7 @@ class Frame():
     def makeNormHist(self):
         self.convertToHSV()
         self.splitHSV()
-        cv2.normalize(self.frameH,self.frameH,0,255,cv2.NORM_MINMAX)
+        #cv2.normalize(self.frameH,self.frameH,0,255,cv2.NORM_MINMAX)
         hist = cv2.calcHist([self.frameH],[0],None,[255],[0,255])
         self.normHist = np.divide(hist,hist.sum())
     

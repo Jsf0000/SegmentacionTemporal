@@ -51,9 +51,9 @@ class Cut(object):
         devMedia = np.median(self.dissimilarity) + np.std(self.dissimilarity)
         for i in range(len(self.dissimilarity)):
             if (self.dissimilarity[i] >= devMedia):
-                if ((self.dissimilarity[i] in self.cuts) == False):
+                if ((i in self.cuts) == False):
                     self.cuts.append(i)
-                elif ((self.dissimilarity[i+1] in self.cuts) == False):
+                elif (((i+1) in self.cuts) == False):
                     self.cuts.append(i+1)
         print self.cuts            
                         
