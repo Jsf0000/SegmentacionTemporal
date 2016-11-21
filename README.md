@@ -13,5 +13,7 @@ pequeño.
 
 Al correrce el video con tensorflow, en pantalla se desplegara el resultado de la formula bhattacharyya y el numero de frame procesado.
 
+El archivo que guarda los cortes, se encuentra en el modulo controller y se llama Cortes.csv
+
 
 
